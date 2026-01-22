@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MD Aminul Islam | ETE Portfolio</title>
+  <meta name="description" content="Portfolio of MD Aminul Islam (ETE) - projects, skills, education, and contact." />
+
+  <style>
+    :root{
+      --bg: #0b1020;
+      --panel: rgba(255,255,255,0.06);
+      --panel2: rgba(255,255,255,0.08);
+      --text: #eaf0ff;
+      --muted: rgba(234,240,255,0.75);
+      --line: rgba(234,240,255,0.14);
+      --accent: #7c5cff;
+      --accent2: #22c55e;
+      --shadow: 0 18px 45px rgba(0,0,0,0.35);
+      --radius: 18px;
+      --max: 1100px;
+    }
+
+    *{ box-sizing: border-box; }
+    html, body{ margin:0; padding:0; scroll-behavior:smooth; }
+    body{
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(900px 500px at 15% 10%, rgba(124,92,255,0.22), transparent 60%),
+        radial-gradient(700px 500px at 80% 20%, rgba(34,197,94,0.14), transparent 60%),
+        radial-gradient(900px 700px at 50% 85%, rgba(124,92,255,0.12), transparent 60%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    a{ color: inherit; text-decoration: none; }
+    img{ max-width: 100%; display:block; }
+
+    .wrap{ width: min(var(--max), 92%); margin: 0 auto; }
+
+    /* Top Nav */
+    .nav{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(11,16,32,0.55);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding: 14px 0;
+      gap: 12px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+    }
+    .logo{
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(124,92,255,0.95), rgba(34,197,94,0.85));
+      box-shadow: var(--shadow);
+    }
+    .brand small{ display:block; color: var(--muted); font-weight: 600; margin-top: -2px; }
+
+    .nav-links{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .nav-links a{
+      padding: 8px 11px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      color: var(--muted);
+      font-weight: 650;
+      font-size: 14px;
+    }
+    .nav-links a:hover{
+      border-color: var(--line);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+    }
+
+    /* Hero */
+    .hero{ padding: 46px 0 18px; }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+    .card{
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .hero-main{
+      padding: 26px;
+      position: relative;
+      overflow: hidden;
+    }
+    .glow{
+      position:absolute;
+      inset: -120px -120px auto auto;
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, rgba(124,92,255,0.35), transparent 60%);
+      filter: blur(2px);
+      pointer-events:none;
+    }
+    .badge{
+      display:inline-flex;
+      gap: 8px;
+      align-items:center;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(124,92,255,0.14);
+      border: 1px solid rgba(124,92,255,0.25);
+      color: rgba(234,240,255,0.92);
+      font-weight: 700;
+      font-size: 13px;
+    }
+    .dot{
+      width: 8px;
+      height: 8px;
+      border-radius: 99px;
+      background: var(--accent2);
+      box-shadow: 0 0 0 4px rgba(34,197,94,0.12);
+    }
+    h1{
+      margin: 14px 0 8px;
+      font-size: clamp(30px, 3.4vw, 44px);
+      line-height: 1.12;
+      letter-spacing: -0.3px;
+    }
+    .subtitle{
+      color: var(--muted);
+      max-width: 60ch;
+      margin: 10px 0 0;
+      font-size: 15.5px;
+    }
+    .cta{
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-weight: 800;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+      cursor: pointer;
+    }
+    .btn:hover{ background: rgba(255,255,255,0.10); }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(124,92,255,0.95), rgba(124,92,255,0.65));
+      border-color: rgba(124,92,255,0.35);
+    }
+    .btn.primary:hover{ filter: brightness(1.06); }
+
+    .hero-side{
+      padding: 18px;
+      display:flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .profile{
+      background: var(--panel2);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 14px;
+      display:flex;
+      gap: 14px;
+      align-items:center;
+    }
+    .avatar{
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      border: 1px dashed rgba(234,240,255,0.25);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color: rgba(234,240,255,0.75);
+      font-weight: 800;
+      background: rgba(0,0,0,0.18);
+    }
+    .profile h3{ margin:0; font-size: 16px; }
+    .profile p{ margin: 2px 0 0; color: var(--muted); font-size: 13.5px; }
+
+    .quick{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .qbox{
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 12px;
+    }
+    .qbox b{ display:block; font-size: 14px; }
+    .qbox span{ color: var(--muted); font-size: 13px; }
+
+    /* Sections */
+    section{ padding: 18px 0; }
+    .section-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .section-head h2{
+      margin: 0;
+      font-size: 20px;
+      letter-spacing: -0.2px;
+    }
+    .section-head p{
+      margin: 0;
+      color: var(--muted);
+      font-size: 13.5px;
+    }
+
+    .grid-2{ display:grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .grid-3{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+
+    .panel{
+      padding: 16px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: var(--panel);
+    }
+
+    .chips{ display:flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .chip{
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(234,240,255,0.16);
+      background: rgba(255,255,255,0.04);
+      color: rgba(234,240,255,0.9);
+      font-weight: 650;
+      font-size: 13px;
+    }
+
+    /* Projects */
+    .project{ display:flex; flex-direction: column; gap: 10px; height: 100%; }
+    .thumb{
+      border-radius: 14px;
+      border: 1px solid rgba(234,240,255,0.14);
+      background: linear-gradient(135deg, rgba(124,92,255,0.16), rgba(34,197,94,0.10));
+      min-height: 130px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color: rgba(234,240,255,0.70);
+      font-weight: 800;
+      text-align: center;
+      padding: 10px;
+    }
+    .project h3{ margin: 0; font-size: 16px; }
+    .project p{ margin: 0; color: var(--muted); font-size: 13.5px; }
+    .project .meta{ display:flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+    .pill{
+      font-size: 12.5px;
+      padding: 6px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(124,92,255,0.25);
+      background: rgba(124,92,255,0.10);
+      color: rgba(234,240,255,0.9);
+      font-weight: 700;
+    }
+    .links{ margin-top: 8px; display:flex; gap: 10px; flex-wrap: wrap; }
+    .link{
+      font-weight: 750;
+      font-size: 13.5px;
+      color: rgba(234,240,255,0.92);
+      border-bottom: 1px solid rgba(234,240,255,0.20);
+      padding-bottom: 2px;
+    }
+    .link:hover{ border-bottom-color: rgba(234,240,255,0.55); }
+
+    /* Timeline */
+    .timeline{ display:flex; flex-direction: column; gap: 12px; }
+    .item{
+      padding: 14px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.05);
+    }
+    .item b{ display:block; }
+    .item small{ color: var(--muted); }
+    .item ul{ margin: 8px 0 0 18px; color: rgba(234,240,255,0.9); }
+    .item li{ margin: 4px 0; color: var(--muted); }
+
+    /* Contact */
+    .contact{ display:grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .contact .panel p{ color: var(--muted); margin-top: 6px; }
+    .contact-list{ display:flex; flex-direction: column; gap: 10px; margin-top: 12px; }
+    .contact-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(234,240,255,0.12);
+      background: rgba(255,255,255,0.04);
+      font-weight: 700;
+    }
+    .contact-row span{ color: var(--muted); font-weight: 700; }
+    .contact-row a{ color: var(--text); }
+
+    form{ display:flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+    input, textarea{
+      width:100%;
+      padding: 11px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(234,240,255,0.14);
+      background: rgba(0,0,0,0.22);
+      color: var(--text);
+      outline: none;
+      font-size: 14px;
+    }
+    textarea{ min-height: 110px; resize: vertical; }
+    input::placeholder, textarea::placeholder{ color: rgba(234,240,255,0.55); }
+
+    footer{
+      padding: 20px 0 34px;
+      color: rgba(234,240,255,0.65);
+      font-size: 13px;
+      border-top: 1px solid var(--line);
+      margin-top: 14px;
+    }
+
+    @media (max-width: 900px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .grid-3{ grid-template-columns: 1fr; }
+      .grid-2{ grid-template-columns: 1fr; }
+      .contact{ grid-template-columns: 1fr; }
+      .nav-links{ display:none; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <div class="nav">
+    <div class="wrap nav-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          MD Aminul Islam
+          <small>ETE Student • Builder • Problem Solver</small>
+        </div>
+      </div>
+
+      <div class="nav-links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#certs">Certifications</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div class="card hero-main">
+        <div class="glow" aria-hidden="true"></div>
+
+        <div class="badge">
+          <span class="dot" aria-hidden="true"></span>
+          Interested in ETE + Embedded + IoT projects
+        </div>
+
+        <h1>
+          ETE student building practical<br/>
+          hardware + software solutions.
+        </h1>
+
+        <p class="subtitle">
+          Hi, I’m <b>MD Aminul Islam</b> from the <b>ETE</b> department.
+          I enjoy working on digital systems, web projects, and IoT-based solutions that solve real-world problems.
+        </p>
+
+        <div class="cta">
+          <a class="btn primary" href="#projects">View Projects</a>
+          <a class="btn" href="#contact">Contact Me</a>
+          <a class="btn" href="resume.pdf" target="_blank" rel="noopener">Download CV</a>
+        </div>
+      </div>
+
+      <aside class="card hero-side">
+        <div class="profile">
+          <div class="avatar">MA</div>
+          <div>
+            <h3>MD Aminul Islam</h3>
+            <p>Department: ETE • Bangladesh</p>
+          </div>
+        </div>
+
+        <div class="quick">
+          <div class="qbox">
+            <b>Focus</b>
+            <span>Embedded / IoT / Web</span>
+          </div>
+          <div class="qbox">
+            <b>Projects</b>
+            <span>ALU • Web • IoT</span>
+          </div>
+          <div class="qbox">
+            <b>GitHub</b>
+            <span>@yourusername</span>
+          </div>
+          <div class="qbox">
+            <b>Email</b>
+            <span>aminul@example.com</span>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-top:2px;">
+          <b>Currently Learning</b>
+          <p style="margin:6px 0 0; color: var(--muted);">
+            • Digital logic & CPU building blocks (ALU, registers)<br/>
+            • IoT sensors & data monitoring basics<br/>
+            • Clean web UI and documentation
+          </p>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>About</h2>
+          <p>Who I am and what I do</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="panel">
+            <b>Summary</b>
+            <p style="margin-top:8px; color: var(--muted);">
+              I’m an ETE student with interest in digital electronics, embedded systems, and IoT.
+              I like turning concepts into working prototypes—then documenting the process clearly.
+            </p>
+            <div class="chips">
+              <span class="chip">Digital Electronics</span>
+              <span class="chip">Embedded Systems</span>
+              <span class="chip">IoT</span>
+              <span class="chip">Web Basics</span>
+            </div>
+          </div>
+
+          <div class="panel">
+            <b>What I value</b>
+            <div class="timeline" style="margin-top:10px;">
+              <div class="item">
+                <b>Hands-on Learning</b>
+                <small>Build → test → improve</small>
+                <ul>
+                  <li>Prototype and iterate quickly</li>
+                  <li>Keep circuits/code simple and explainable</li>
+                </ul>
+              </div>
+              <div class="item">
+                <b>Reliability</b>
+                <small>Stable output matters</small>
+                <ul>
+                  <li>Focus on correct logic and clean wiring</li>
+                  <li>Good documentation and results</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Skills</h2>
+          <p>Tools and areas I work with</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="panel">
+            <b>Electronics / ETE</b>
+            <div class="chips">
+              <span class="chip">Digital Logic</span>
+              <span class="chip">ALU Design</span>
+              <span class="chip">Sensors</span>
+              <span class="chip">Basic PCB/Wiring</span>
+            </div>
+          </div>
+          <div class="panel">
+            <b>Programming</b>
+            <div class="chips">
+              <span class="chip">C</span>
+              <span class="chip">C++</span>
+              <span class="chip">Arduino</span>
+              <span class="chip">Python (basic)</span>
+            </div>
+          </div>
+          <div class="panel">
+            <b>Web & Tools</b>
+            <div class="chips">
+              <span class="chip">HTML</span>
+              <span class="chip">CSS</span>
+              <span class="chip">JavaScript</span>
+              <span class="chip">Git/GitHub</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Projects</h2>
+          <p>Selected works (add GitHub/demo links)</p>
+        </div>
+
+        <div class="grid-3">
+          <!-- Project 1 -->
+          <div class="panel project">
+            <div class="thumb">4-bit ALU</div>
+            <h3>4-bit ALU (Arithmetic Logic Unit)</h3>
+            <p>
+              Designed a 4-bit ALU to perform basic arithmetic and logic operations (add, subtract, AND, OR, etc.)
+              with clear truth tables and verification.
+            </p>
+            <div class="meta">
+              <span class="pill">Digital Logic</span>
+              <span class="pill">Combinational</span>
+              <span class="pill">ETE</span>
+            </div>
+            <div class="links">
+              <a class="link" href="#" target="_blank" rel="noopener">GitHub</a>
+              <a class="link" href="#" target="_blank" rel="noopener">Report/Docs</a>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="panel project">
+            <div class="thumb">Restaurant Website</div>
+            <h3>Restaurant Website</h3>
+            <p>
+              A responsive restaurant website with menu, services, contact section, and clean UI layout.
+              Built to be mobile-friendly and easy to update.
+            </p>
+            <div class="meta">
+              <span class="pill">HTML</span>
+              <span class="pill">CSS</span>
+              <span class="pill">JS</span>
+            </div>
+            <div class="links">
+              <a class="link" href="#" target="_blank" rel="noopener">GitHub</a>
+              <a class="link" href="#" target="_blank" rel="noopener">Live Demo</a>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="panel project">
+            <div class="thumb">IoT Water Monitor</div>
+            <h3>IoT Based Water Level & Quality Detection</h3>
+            <p>
+              Built an IoT prototype that monitors water level and basic water quality parameters using sensors,
+              then displays/logs readings for quick monitoring.
+            </p>
+            <div class="meta">
+              <span class="pill">IoT</span>
+              <span class="pill">Sensors</span>
+              <span class="pill">Arduino/ESP</span>
+            </div>
+            <div class="links">
+              <a class="link" href="#" target="_blank" rel="noopener">GitHub</a>
+              <a class="link" href="#" target="_blank" rel="noopener">Demo/Video</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Education</h2>
+          <p>Academic background</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="panel">
+            <div class="timeline">
+              <div class="item">
+                <b>BSc in ETE</b>
+                <small>(University Name) • (Year–Present)</small>
+                <ul>
+                  <li>Key courses: Digital Electronics, Microprocessors, Communication Systems</li>
+                  <li>Focus: building practical projects and lab work</li>
+                </ul>
+              </div>
+              <div class="item">
+                <b>HSC</b>
+                <small>College Name • Year</small>
+                <ul>
+                  <li>Science</li>
+                  <li>Add achievements/club activities (optional)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <b>Academic Interests</b>
+            <p style="margin-top:8px; color: var(--muted);">
+              I enjoy topics that combine theory with implementation—digital circuits, embedded systems,
+              and sensor-based monitoring solutions.
+            </p>
+            <div class="chips">
+              <span class="chip">Digital Logic</span>
+              <span class="chip">Microcontroller</span>
+              <span class="chip">Sensors</span>
+              <span class="chip">Signal Basics</span>
+              <span class="chip">Networking (basic)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certs">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Certifications</h2>
+          <p>Add courses / badges (optional)</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="panel">
+            <b>Course / Certificate Name</b>
+            <p style="margin:6px 0 0; color: var(--muted);">Platform • Year</p>
+            <div class="links" style="margin-top:10px;">
+              <a class="link" href="#" target="_blank" rel="noopener">View</a>
+            </div>
+          </div>
+          <div class="panel">
+            <b>Course / Certificate Name</b>
+            <p style="margin:6px 0 0; color: var(--muted);">Platform • Year</p>
+            <div class="links" style="margin-top:10px;">
+              <a class="link" href="#" target="_blank" rel="noopener">View</a>
+            </div>
+          </div>
+          <div class="panel">
+            <b>Course / Certificate Name</b>
+            <p style="margin:6px 0 0; color: var(--muted);">Platform • Year</p>
+            <div class="links" style="margin-top:10px;">
+              <a class="link" href="#" target="_blank" rel="noopener">View</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Contact</h2>
+          <p>Let’s connect</p>
+        </div>
+
+        <div class="contact">
+          <div class="panel">
+            <b>Contact Info</b>
+            <p>
+              Replace these placeholders with your friend’s real email/phone and social links.
+            </p>
+
+            <div class="contact-list">
+              <div class="contact-row">
+                <span>Email</span>
+                <a href="mailto:aminul@example.com">aminul@example.com</a>
+              </div>
+              <div class="contact-row">
+                <span>Phone</span>
+                <a href="tel:+8801XXXXXXXXX">+880 1XXXXXXXXX</a>
+              </div>
+              <div class="contact-row">
+                <span>GitHub</span>
+                <a href="#" target="_blank" rel="noopener">github.com/yourusername</a>
+              </div>
+              <div class="contact-row">
+                <span>LinkedIn</span>
+                <a href="#" target="_blank" rel="noopener">linkedin.com/in/yourprofile</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <b>Quick Message</b>
+            <p style="margin-top:6px; color: var(--muted);">
+              Front-end only. Connect a backend/service to actually send emails.
+            </p>
+
+            <form onsubmit="event.preventDefault(); alert('Message prepared! (Connect a backend to send.)');">
+              <input type="text" name="name" placeholder="Your name" required />
+              <input type="email" name="email" placeholder="Your email" required />
+              <textarea name="message" placeholder="Your message" required></textarea>
+              <button class="btn primary" type="submit">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      © <span id="y"></span> MD Aminul Islam • ETE Portfolio
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
