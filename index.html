@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -138,6 +139,18 @@
       background: var(--accent2);
       box-shadow: 0 0 0 4px rgba(34,197,94,0.12);
     }
+
+    /* HERO PHOTO (added) */
+    .hero-photo{
+      width: 92px;
+      height: 92px;
+      border-radius: 20px;
+      border: 1px solid rgba(234,240,255,0.18);
+      object-fit: cover;
+      margin-top: 14px;
+      background: rgba(0,0,0,0.18);
+    }
+
     h1{
       margin: 14px 0 8px;
       font-size: clamp(30px, 3.4vw, 44px);
@@ -191,18 +204,17 @@
       gap: 14px;
       align-items:center;
     }
+
+    /* AVATAR IMAGE (updated to support img) */
     .avatar{
       width: 64px;
       height: 64px;
       border-radius: 16px;
-      border: 1px dashed rgba(234,240,255,0.25);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color: rgba(234,240,255,0.75);
-      font-weight: 800;
+      border: 1px solid rgba(234,240,255,0.18);
+      object-fit: cover;
       background: rgba(0,0,0,0.18);
     }
+
     .profile h3{ margin:0; font-size: 16px; }
     .profile p{ margin: 2px 0 0; color: var(--muted); font-size: 13.5px; }
 
@@ -396,6 +408,9 @@
           Interested in ETE + Embedded + IoT projects
         </div>
 
+        <!-- BIG PROFILE IMAGE (add profile.jpg in same folder) -->
+        <img class="hero-photo" src="profile.jpg" alt="MD Aminul Islam profile photo" />
+
         <h1>
           ETE student building practical<br/>
           hardware + software solutions.
@@ -415,7 +430,8 @@
 
       <aside class="card hero-side">
         <div class="profile">
-          <div class="avatar">MA</div>
+          <!-- SMALL PROFILE IMAGE (same profile.jpg) -->
+          <img class="avatar" src="profile.jpg" alt="MD Aminul Islam profile photo" />
           <div>
             <h3>MD Aminul Islam</h3>
             <p>Department: ETE • Bangladesh</p>
@@ -752,6 +768,9 @@
   <footer>
     <div class="wrap">
       © <span id="y"></span> MD Aminul Islam • ETE Portfolio
+      <div style="margin-top:6px; color: rgba(234,240,255,0.55);">
+        Tip: Put <b>profile.jpg</b> in the same folder as <b>index.html</b>.
+      </div>
     </div>
   </footer>
 
@@ -760,3 +779,4 @@
   </script>
 </body>
 </html>
+```
